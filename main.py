@@ -5,7 +5,7 @@ print('[')
 with open(filename, encoding='utf8', newline='') as f:
     data = csv.reader(f)
     data = list(data)
-    for i in range(len(data)):
+    for i in range(1,len(data)):
         print('\t{')
         print(f'\t\t"questionId":"{i}",')
         print(f'\t\t"genreId":"{data[i][0]}",')
