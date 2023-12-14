@@ -17,7 +17,8 @@ with open(filename, encoding='utf8', newline='') as f:
         print(f'\t\t\t"4.{data[i][5]}"')
         print(f'\t\t],')
         print(f'\t\t"correct":"{data[i][6]}",')
-        print(f'\t\t"explanation":"{data[i][7]}"')
+        print(f'\t\t"explanation":"{data[i][7]}",')
+        print(f'\t\t"url":"{data[i][8]}"')
         if i == len(data)-1:
             print('\t}')
         else:
