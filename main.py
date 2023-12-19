@@ -1,26 +1,26 @@
 import csv
 
 filename = 'data.csv'
-print('[')
+print("[")
 with open(filename, encoding='utf8', newline='') as f:
     data = csv.reader(f)
     data = list(data)
+    di = {}
     for i in range(1,len(data)):
-        print('\t{')
-        print(f'\t\t"questionId":"{i}",')
-        print(f'\t\t"genreId":"{data[i][0]}",')
-        print(f'\t\t"question":"{data[i][1]}",')
-        print(f'\t\t"answers":[')
-        print(f'\t\t\t"1.{data[i][2]}",')
-        print(f'\t\t\t"2.{data[i][3]}",')
-        print(f'\t\t\t"3.{data[i][4]}",')
-        print(f'\t\t\t"4.{data[i][5]}"')
-        print(f'\t\t],')
-        print(f'\t\t"correct":"{data[i][6]}",')
-        print(f'\t\t"explanation":"{data[i][7]}",')
-        print(f'\t\t"url":"{data[i][8]}"')
-        if i == len(data)-1:
-            print('\t}')
+        di["questionId"] = i
+        di["genreId"] = data[i][0]
+        di["question"] = data[i][1]
+        di["answers"] = [
+            [f"1.{data[i][2]}"],
+            [f"2.{data[i][3]}"],
+            [f"3.{data[i][4]}"],
+            [f"4.{data[i][5]}"]
+        ]
+        di["correct"] = data[i][6]
+        di["explanation"] = data[i][7]
+        di["url"] = data[i][8]
+        if i != len(data)-1:
+            print("\t"+str([di]).replace('\'','\"')+',')
         else:
-            print('\t},')
-print(']')
+            print("\t"+str([di]).replace('\'','\"'))
+print("]")
